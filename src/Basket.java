@@ -7,13 +7,19 @@ public class Basket { //класс
         add( "Молоко", 55);
         add("масло", 120);
         print("Содержимое корзмны:");
-        System.out.println(getTotalPrice());
+        int totalPrice = getTotalPrice();
+        System.out.println("Общая стоимость товаров: " + totalPrice);
         clear();
+        System.out.println();
         print("Содержимое корзмны:");
-        System.out.println(getTotalPrice());
+        totalPrice = getTotalPrice();
+        System.out.println("Общая стоимость товаров: " + totalPrice);
     }
 
     public static void add(String name, int price) { //метод добавления в корзину с 2-я параметрами (переменные)
+        if(contains(name)){
+            return;
+        }
         items = items + "\n" + name + " - " + price;
         totalPrice = totalPrice + price;
     }
@@ -25,6 +31,10 @@ public class Basket { //класс
 
     public static int getTotalPrice () {
         return totalPrice;
+    }
+
+    public static boolean contains(String name){ //РАЗОБРАТЬСЯ КАК РАБОТАЕТ!!!
+        return items.contains(name);
     }
 
     public static void print(String title) {
