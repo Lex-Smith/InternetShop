@@ -27,7 +27,7 @@ public class Basket { //класс
         if(contains(name)){
             return;
         }
-        if(totalPrice + price >= limit){
+        if(totalPrice + count * price >= limit){
             return;
         }
 
