@@ -19,7 +19,11 @@ public class Basket { //класс
         this.totalPrice = totalPrice;
     }
 
-    public void add(String name, int price) { //метод добавления в корзину с 2-я параметрами (переменные)
+    public void add(String name, int price) {//метод добавления в корзину с 2-я параметрами (переменные)
+        add(name, price, 1);
+    }
+
+    public void add(String name, int price, int count){
         if(contains(name)){
             return;
         }
@@ -27,8 +31,8 @@ public class Basket { //класс
             return;
         }
 
-        items = items + "\n" + name + " - " + price;
-        totalPrice = totalPrice + price;
+        items = items + "\n" + name + " - " + count + " шт. - " + price;
+        totalPrice = totalPrice + count * price;
     }
 
     public void clear() {
